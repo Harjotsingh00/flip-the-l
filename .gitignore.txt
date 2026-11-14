@@ -1,6 +1,0 @@
-# Godot 4+ specific ignores
-.godot/
-web_build/
-*.zip
-*.exe
-*.pck
