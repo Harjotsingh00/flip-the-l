@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c72sicyh7nvb2"]
+
+[ext_resource type="Script" uid="uid://c32porbrj2yic" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="AudioStream" uid="uid://bcqmrprytqac8" path="res://sounds/flip.wav" id="2_dqkch"]
+[ext_resource type="AudioStream" uid="uid://cmrymb7q5jbay" path="res://sounds/boom.wav" id="3_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://dbk8y4k8ftgos" path="res://sounds/hurt.wav" id="4_tuyoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl4wu"]
+size = Vector2(40, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vl4wu"]
+radius = 65.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npffj"]
+size = Vector2(36, 36)
+
+[node name="Player" type="CharacterBody2D" unique_id=922536857]
+script = ExtResource("1_3vyb7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=999546056]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1944633552]
+shape = SubResource("RectangleShape2D_vl4wu")
+
+[node name="ParryZone" type="Area2D" parent="." unique_id=2060571223]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParryZone" unique_id=448385513]
+shape = SubResource("CircleShape2D_vl4wu")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1074181620]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=968415380]
+shape = SubResource("RectangleShape2D_npffj")
+
+[node name="FlipSound" type="AudioStreamPlayer2D" parent="." unique_id=1849365800]
+stream = ExtResource("2_dqkch")
+
+[node name="BoomSound" type="AudioStreamPlayer2D" parent="." unique_id=667125698]
+stream = ExtResource("3_qlg0r")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=1691534774]
+stream = ExtResource("4_tuyoq")

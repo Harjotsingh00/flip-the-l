@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://ct48w41xrllsw"]
+
+[ext_resource type="Script" uid="uid://v22hb8xukn58" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c72sicyh7nvb2" path="res://scenes/player.tscn" id="2_0wfyh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vl4wu"]
+
+[sub_resource type="Environment" id="Environment_vl4wu"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.6
+
+[node name="Main" type="Node2D" unique_id=44316457]
+script = ExtResource("1_o5qli")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1277343698]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.043137256, 0.050980393, 0.101960786, 1)
+
+[node name="Player" parent="." unique_id=922536857 instance=ExtResource("2_0wfyh")]
+position = Vector2(640, 360)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=891965171]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1648182882]
+position = Vector2(640, 720)
+shape = SubResource("WorldBoundaryShape2D_vl4wu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=577325391]
+position = Vector2(1280, 360)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_vl4wu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1840839378]
+position = Vector2(0, 360)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_vl4wu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1976791851]
+position = Vector2(640, 0)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_vl4wu")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1470442016]
+wait_time = 1.2
+autostart = true
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1153550454]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 104.0
+offset_bottom = 43.0
+text = "Bounces: 0"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=970077061]
+position = Vector2(640, 360)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1368769329]
+environment = SubResource("Environment_vl4wu")

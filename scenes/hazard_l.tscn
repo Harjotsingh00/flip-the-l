@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bb8co2oitay61"]
+
+[ext_resource type="Script" uid="uid://cp5kda3qvte0k" path="res://scripts/hazard_l.gd" id="1_68piw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl4wu"]
+size = Vector2(18, 30)
+
+[node name="HazardL" type="Area2D" unique_id=615432055 groups=["L_hazard"]]
+script = ExtResource("1_68piw")
+
+[node name="Label" type="Label" parent="." unique_id=142873]
+modulate = Color(0.9882353, 0.03529412, 0.2627451, 1)
+offset_right = 91.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 40
+text = "L"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=717419298]
+position = Vector2(12, 29)
+shape = SubResource("RectangleShape2D_vl4wu")
